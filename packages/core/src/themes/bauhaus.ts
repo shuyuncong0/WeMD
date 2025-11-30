@@ -222,4 +222,50 @@ export const bauhausTheme = `/* 包豪斯风格 */
     padding: 10px;
     color: #333;
 }
+
+/* 提示块 - 包豪斯风格 */
+#wemd .callout {
+    margin: 30px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border: 2px solid #111;
+    box-shadow: 5px 5px 0 #FBC02D;
+    border-radius: 0;
+}
+
+#wemd .callout-title {
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #111;
+    font-size: 16px;
+}
+
+#wemd .callout-icon {
+    margin-right: 6px;
+}
+
+#wemd .callout-note { 
+    border-left: 10px solid #1976D2; 
+}
+
+#wemd .callout-info { 
+    border-left: 10px solid #1976D2; 
+}
+
+#wemd .callout-tip { 
+    border-left: 10px solid #FBC02D; 
+}
+
+#wemd .callout-success { 
+    border-left: 10px solid #1976D2; 
+}
+
+#wemd .callout-warning { 
+    border-left: 10px solid #FBC02D; 
+}
+
+#wemd .callout-danger { 
+    border-left: 10px solid #D32F2F; 
+}
 `;

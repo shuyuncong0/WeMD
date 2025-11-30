@@ -411,4 +411,55 @@ export const cyberpunkNeonTheme = `/* 赛博朋克风格 */
     vertical-align: middle;
     filter: invert(1);
 }
+
+/* 提示块 - 赛博朋克风格 */
+#wemd .callout {
+    margin: 30px 0;
+    padding: 20px;
+    background: #1A212D;
+    border: 1px solid #30363D;
+    border-radius: 4px;
+}
+
+#wemd .callout-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00F3FF;
+    text-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
+    font-size: 16px;
+}
+
+#wemd .callout-icon {
+    margin-right: 6px;
+}
+
+#wemd .callout-note { 
+    border-left: 3px solid #00F3FF;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+#wemd .callout-info { 
+    border-left: 3px solid #00F3FF;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+#wemd .callout-tip { 
+    border-left: 3px solid #FF00C1;
+    box-shadow: 0 0 10px rgba(255, 0, 193, 0.2);
+}
+
+#wemd .callout-success { 
+    border-left: 3px solid #00F3FF;
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+}
+
+#wemd .callout-warning { 
+    border-left: 3px solid #FFB84D;
+    box-shadow: 0 0 10px rgba(255, 184, 77, 0.2);
+}
+
+#wemd .callout-danger { 
+    border-left: 3px solid #FF00C1;
+    box-shadow: 0 0 10px rgba(255, 0, 193, 0.2);
+}
 `;

@@ -362,4 +362,54 @@ export const knowledgeBaseTheme = `/* 知识库风格 */
     max-width: 100%;
     vertical-align: middle;
 }
+
+
+/* 提示块 - 知识库风格 */
+#wemd .callout {
+    margin: 24px 0;
+    padding: 16px 16px 16px 20px;
+    border-radius: 4px;
+    border-left: 4px solid #37352F;
+}
+
+#wemd .callout-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #37352F;
+    font-size: 15px;
+}
+
+#wemd .callout-icon {
+    margin-right: 6px;
+}
+
+#wemd .callout-note { 
+    background: #F1F1EF;
+    border-left-color: #37352F;
+}
+
+#wemd .callout-info { 
+    background: #E7F3F8;
+    border-left-color: #2D9CDB;
+}
+
+#wemd .callout-tip { 
+    background: #FDF5F2;
+    border-left-color: #F2994A;
+}
+
+#wemd .callout-success { 
+    background: #EDF7ED;
+    border-left-color: #4CAF50;
+}
+
+#wemd .callout-warning { 
+    background: #FFF4E5;
+    border-left-color: #FF9800;
+}
+
+#wemd .callout-danger { 
+    background: #FFEBEE;
+    border-left-color: #F44336;
+}
 `;

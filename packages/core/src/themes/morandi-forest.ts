@@ -336,4 +336,31 @@ export const morandiForestTheme = `/* 莫兰迪森林风格 */
   max-width: 100%;
   vertical-align: middle;
 }
+
+/* 提示块 - 莫兰迪森林风格 */
+#wemd .callout {
+  margin: 30px 0;
+  padding: 20px;
+  background: #F6F8F6;
+  border: 1px dashed #739072;
+  border-radius: 8px;
+}
+
+#wemd .callout-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #4F6F52;
+  font-size: 15px;
+}
+
+#wemd .callout-icon {
+  margin-right: 6px;
+}
+
+#wemd .callout-note { border-left: 4px solid #739072; }
+#wemd .callout-info { border-left: 4px solid #4F6F52; }
+#wemd .callout-tip { border-left: 4px solid #86A789; }
+#wemd .callout-success { border-left: 4px solid #4F6F52; }
+#wemd .callout-warning { border-left: 4px solid #D98C45; }
+#wemd .callout-danger { border-left: 4px solid #B33D25; }
 `;

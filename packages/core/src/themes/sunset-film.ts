@@ -405,4 +405,32 @@ export const sunsetFilmTheme = `/* 落日胶片风格 */
     max-width: 100%;
     vertical-align: middle;
 }
+
+/* 提示块 - 落日胶片风格 */
+#wemd .callout {
+    margin: 36px 0;
+    padding: 24px;
+    background: #F7EED6;
+    border-left: 3px solid #8D5B4C;
+    border-radius: 2px;
+}
+
+#wemd .callout-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #B33D25;
+    font-family: serif;
+    font-size: 15px;
+}
+
+#wemd .callout-icon {
+    margin-right: 6px;
+}
+
+#wemd .callout-note { border-left-color: #8D5B4C; }
+#wemd .callout-info { border-left-color: #8D5B4C; }
+#wemd .callout-tip { border-left-color: #D98C45; }
+#wemd .callout-success { border-left-color: #8D5B4C; }
+#wemd .callout-warning { border-left-color: #D98C45; }
+#wemd .callout-danger { border-left-color: #B33D25; }
 `;

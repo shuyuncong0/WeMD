@@ -439,4 +439,33 @@ export const neoBrutalismTheme = `/* 新粗野主义风格 */
     max-width: 100%;
     vertical-align: middle;
 }
+
+/* 提示块 - 新粗野主义风格 */
+#wemd .callout {
+    margin: 40px 0;
+    padding: 20px;
+    background: #f4f4f4;
+    border: 2px solid #000;
+    box-shadow: 6px 6px 0px #6A00FF;
+    border-radius: 0;
+}
+
+#wemd .callout-title {
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 16px;
+}
+
+#wemd .callout-icon {
+    margin-right: 6px;
+}
+
+#wemd .callout-note { border-left: 8px solid #6A00FF; }
+#wemd .callout-info { border-left: 8px solid #6A00FF; }
+#wemd .callout-tip { border-left: 8px solid #CCFF00; }
+#wemd .callout-success { border-left: 8px solid #6A00FF; }
+#wemd .callout-warning { border-left: 8px solid #CCFF00; }
+#wemd .callout-danger { border-left: 8px solid #FF6B9D; }
 `;

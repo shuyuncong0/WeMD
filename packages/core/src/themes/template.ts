@@ -474,6 +474,65 @@ export const templateTheme = `/*
 }
 
 /* ============================================
+ * 16. 提示块样式（Callout）
+ * ============================================
+ * 
+ * 提示块用于显示不同类型的提示信息
+ * 支持的类型：note、info、tip、success、warning、danger
+ */
+
+/* 提示块基础样式 */
+#wemd .callout {
+    margin: 20px 0;
+    padding: 16px 20px;
+    background: #f5f5f5;
+    border-left: 4px solid #ddd;
+    border-radius: 4px;
+}
+
+#wemd .callout-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 15px;
+}
+
+#wemd .callout-icon {
+    margin-right: 6px;
+}
+
+/* 不同类型的提示块 */
+#wemd .callout-note { 
+    border-left-color: #6366f1; 
+    background: #f5f5ff; 
+}
+
+#wemd .callout-info { 
+    border-left-color: #0ea5e9; 
+    background: #f0f9ff; 
+}
+
+#wemd .callout-tip { 
+    border-left-color: #10b981; 
+    background: #ecfdf5; 
+}
+
+#wemd .callout-success { 
+    border-left-color: #10b981; 
+    background: #ecfdf5; 
+}
+
+#wemd .callout-warning { 
+    border-left-color: #f59e0b; 
+    background: #fffbeb; 
+}
+
+#wemd .callout-danger { 
+    border-left-color: #ef4444; 
+    background: #fff5f5; 
+}
+
+/* ============================================
  * 15. 其他元素
  * ============================================
  */

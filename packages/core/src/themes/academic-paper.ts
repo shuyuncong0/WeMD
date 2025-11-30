@@ -240,4 +240,55 @@ export const academicPaperTheme = `/* 学术论文风格 */
     max-width: 100%;
     vertical-align: middle;
 }
+
+/* 提示块 - 学术风格 */
+#wemd .callout {
+    margin: 20px 0;
+    padding: 16px 20px;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    background: #fafafa;
+}
+
+#wemd .callout-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+#wemd .callout-icon {
+    margin-right: 6px;
+}
+
+#wemd .callout-note { 
+    border-left: 4px solid #666; 
+    background: #f5f5f5;
+}
+
+#wemd .callout-info { 
+    border-left: 4px solid #888; 
+    background: #f5f5f5;
+}
+
+#wemd .callout-tip { 
+    border-left: 4px solid #555; 
+    background: #f5f5f5;
+}
+
+#wemd .callout-success { 
+    border-left: 4px solid #333; 
+    background: #f5f5f5;
+}
+
+#wemd .callout-warning { 
+    border-left: 4px solid #999; 
+    background: #f5f5f5;
+}
+
+#wemd .callout-danger { 
+    border-left: 4px solid #000; 
+    background: #f5f5f5;
+}
 `;

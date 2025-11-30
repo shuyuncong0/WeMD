@@ -310,4 +310,33 @@ export const luxuryGoldTheme = `/* 黑金奢华风格 */
     max-width: 100%;
     vertical-align: middle;
 }
+
+/* 提示块 - 黑金奢华风格 */
+#wemd .callout {
+    margin: 40px 0;
+    padding: 20px 30px;
+    background: #fff;
+    border: 1px solid rgba(158, 128, 69, 0.3);
+    border-radius: 2px;
+}
+
+#wemd .callout-title {
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #9E8045;
+    font-family: serif;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+
+#wemd .callout-icon {
+    margin-right: 6px;
+}
+
+#wemd .callout-note { border-left: 3px solid #9E8045; }
+#wemd .callout-info { border-left: 3px solid #9E8045; }
+#wemd .callout-tip { border-left: 3px solid #9E8045; }
+#wemd .callout-success { border-left: 3px solid #9E8045; }
+#wemd .callout-warning { border-left: 3px solid #D98C45; }
+#wemd .callout-danger { border-left: 3px solid #B33D25; }
 `;

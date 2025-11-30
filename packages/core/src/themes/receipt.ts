@@ -274,4 +274,33 @@ export const receiptTheme = `/* 购物小票风格 */
 #wemd .footnotes-sep {
     border-top: 2px dashed #000;
 }
+
+/* 提示块 - 购物小票风格 */
+#wemd .callout {
+    margin: 25px 0;
+    padding: 15px;
+    border: 1px dotted #000;
+    background: #f8f8f8;
+    border-radius: 0;
+}
+
+#wemd .callout-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #000;
+    font-family: monospace;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#wemd .callout-icon {
+    margin-right: 6px;
+}
+
+#wemd .callout-note { border-left: 2px dashed #000; }
+#wemd .callout-info { border-left: 2px dashed #000; }
+#wemd .callout-tip { border-left: 2px dashed #000; }
+#wemd .callout-success { border-left: 2px dashed #000; }
+#wemd .callout-warning { border-left: 2px dashed #000; }
+#wemd .callout-danger { border-left: 2px dashed #000; }
 `;

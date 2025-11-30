@@ -406,4 +406,54 @@ export const auroraGlassTheme = `/* 极光玻璃风格 */
   max-width: 100%;
   vertical-align: middle;
 }
+
+/* 提示块 - 极光玻璃风格 */
+#wemd .callout {
+  margin: 30px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(65, 88, 208, 0.1);
+}
+
+#wemd .callout-title {
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, #4158D0, #C850C0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 16px;
+}
+
+#wemd .callout-icon {
+  margin-right: 6px;
+}
+
+#wemd .callout-note {
+  border-left: 4px solid #6366f1;
+}
+
+#wemd .callout-info {
+  border-left: 4px solid #4158D0;
+}
+
+#wemd .callout-tip {
+  border-left: 4px solid #C850C0;
+}
+
+#wemd .callout-success {
+  border-left: 4px solid #10b981;
+}
+
+#wemd .callout-warning {
+  border-left: 4px solid #FFCC70;
+}
+
+#wemd .callout-danger {
+  border-left: 4px solid #ef4444;
+}
 `;
