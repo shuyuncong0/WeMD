@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useEditorStore } from '../../store/editorStore';
 import { useHistoryStore } from '../../store/historyStore';
 import './ThemePanel.css';
@@ -23,6 +24,7 @@ export function ThemePanel({ open, onClose }: ThemePanelProps) {
   const [nameInput, setNameInput] = useState('');
   const [cssInput, setCssInput] = useState('');
   const [isCreating, setIsCreating] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   const selectedTheme = allThemes.find((t) => t.id === selectedThemeId);
   const isCustomTheme = selectedTheme && !selectedTheme.isBuiltIn;
@@ -36,6 +38,7 @@ export function ThemePanel({ open, onClose }: ThemePanelProps) {
         setCssInput(currentTheme.css);
       }
       setIsCreating(false);
+      setShowDeleteConfirm(false);
     }
   }, [open, theme, allThemes]);
 
@@ -49,6 +52,7 @@ export function ThemePanel({ open, onClose }: ThemePanelProps) {
     setNameInput(theme.name);
     setCssInput(theme.css);
     setIsCreating(false);
+    setShowDeleteConfirm(false);
   };
 
   const handleCreateNew = () => {
@@ -56,6 +60,7 @@ export function ThemePanel({ open, onClose }: ThemePanelProps) {
     setSelectedThemeId('');
     setNameInput('');
     setCssInput(selectedTheme?.css || '');
+    setShowDeleteConfirm(false);
   };
 
   const handleApply = async () => {
@@ -105,16 +110,21 @@ export function ThemePanel({ open, onClose }: ThemePanelProps) {
     }
   };
 
-  const handleDelete = () => {
+  const handleDeleteClick = () => {
+    if (!isCustomTheme) return;
+    setShowDeleteConfirm(true);
+  };
+
+  const handleConfirmDelete = () => {
     if (!isCustomTheme) return;
 
-    if (confirm(`确定要删除主题"${selectedTheme.name}"吗？`)) {
-      deleteTheme(selectedThemeId);
-      const defaultTheme = allThemes.find((t) => t.id === 'default');
-      if (defaultTheme) {
-        handleSelectTheme(defaultTheme.id);
-      }
+    deleteTheme(selectedThemeId);
+    const defaultTheme = allThemes.find((t) => t.id === 'default');
+    if (defaultTheme) {
+      handleSelectTheme(defaultTheme.id);
     }
+    setShowDeleteConfirm(false);
+    toast.success('主题已删除');
   };
 
   const handleDuplicate = () => {
@@ -145,19 +155,6 @@ export function ThemePanel({ open, onClose }: ThemePanelProps) {
               ➕ 新建自定义主题
             </button>
 
-            <div className="theme-group">
-              <div className="theme-group-title">内置主题</div>
-              {builtInThemes.map((item) => (
-                <button
-                  key={item.id}
-                  className={`theme-item ${item.id === selectedThemeId ? 'active' : ''}`}
-                  onClick={() => handleSelectTheme(item.id)}
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-
             {customThemes.length > 0 && (
               <div className="theme-group">
                 <div className="theme-group-title">自定义主题</div>
@@ -172,10 +169,40 @@ export function ThemePanel({ open, onClose }: ThemePanelProps) {
                 ))}
               </div>
             )}
+
+            <div className="theme-group">
+              <div className="theme-group-title">内置主题</div>
+              {builtInThemes.map((item) => (
+                <button
+                  key={item.id}
+                  className={`theme-item ${item.id === selectedThemeId ? 'active' : ''}`}
+                  onClick={() => handleSelectTheme(item.id)}
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* 右侧编辑区 */}
-          <div className="theme-editor">
+          <div className="theme-editor" style={{ position: 'relative' }}>
+            {showDeleteConfirm && (
+              <div className="delete-confirm-overlay">
+                <div className="delete-confirm-box">
+                  <h4>确认删除</h4>
+                  <p>确定要删除主题 "{selectedTheme?.name}" 吗？此操作无法撤销。</p>
+                  <div className="delete-confirm-actions">
+                    <button className="btn-secondary" onClick={() => setShowDeleteConfirm(false)}>
+                      取消
+                    </button>
+                    <button className="btn-primary" style={{ background: '#ef4444', boxShadow: 'none' }} onClick={handleConfirmDelete}>
+                      确认删除
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div className="theme-form">
               <label>主题名称</label>
               <input
@@ -228,7 +255,7 @@ export function ThemePanel({ open, onClose }: ThemePanelProps) {
                   <button className="btn-icon-text" onClick={handleDuplicate}>
                     📋 复制
                   </button>
-                  <button className="btn-icon-text btn-danger" onClick={handleDelete}>
+                  <button className="btn-icon-text btn-danger" onClick={handleDeleteClick}>
                     🗑️ 删除
                   </button>
                   <div className="flex-spacer"></div>
