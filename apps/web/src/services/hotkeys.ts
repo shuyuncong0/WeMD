@@ -168,7 +168,7 @@ export class HotkeyManager {
         }
     }
 
-    private handleKeyUp(event: KeyboardEvent): void {
+    private handleKeyUp(): void {
         // 可以在这里处理 keyup 事件
     }
 
@@ -199,7 +199,7 @@ export class HotkeyManager {
         return parts.join('+');
     }
 
-    private execCommand(command: string, arg?: any): void {
+    private execCommand(command: string, arg?: unknown): void {
         // 这里可以集成 CodeMirror 命令
         const customEvent = new CustomEvent('editorCommand', {
             detail: { command, arg }

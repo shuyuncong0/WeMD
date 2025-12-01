@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useEditorStore } from '../../store/editorStore';
 import { ThemePanel } from '../Theme/ThemePanel';
 import './Header.css';

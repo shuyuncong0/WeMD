@@ -45,10 +45,7 @@ export class UploadController {
       storage: memoryStorage(), // 使用内存存储以保留 buffer
       fileFilter: (req, file, callback) => {
         if (!file.mimetype.match(/\/(jpg|jpeg|png|gif|webp)$/)) {
-          return callback(
-            new BadRequestException('只支持图片文件'),
-            false,
-          );
+          return callback(new BadRequestException('只支持图片文件'), false);
         }
         callback(null, true);
       },
@@ -69,10 +66,7 @@ export class UploadController {
     // 如果使用 COS 存储
     if (this.storageMode === 'cos' && this.cosService) {
       try {
-        const result = await this.cosService.uploadFile(
-          file.buffer,
-          filename,
-        );
+        const result = await this.cosService.uploadFile(file.buffer, filename);
         return {
           url: result.url,
           filename: file.originalname,

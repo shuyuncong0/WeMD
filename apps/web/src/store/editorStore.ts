@@ -3,7 +3,6 @@ import {
   basicTheme,
   customDefaultTheme,
   codeGithubTheme,
-  processHtml,
   academicPaperTheme,
   auroraGlassTheme,
   bauhausTheme,
@@ -16,10 +15,6 @@ import {
   sunsetFilmTheme,
   templateTheme
 } from '@wemd/core';
-import toast from 'react-hot-toast';
-
-const DATA_TOOL = 'WeMD编辑器';
-const DATA_WEBSITE = 'https://github.com/your-repo/wemd';
 
 export interface ResetOptions {
   markdown?: string;

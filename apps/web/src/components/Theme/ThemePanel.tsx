@@ -18,9 +18,8 @@ export function ThemePanel({ open, onClose }: ThemePanelProps) {
   const deleteTheme = useEditorStore((state) => state.deleteTheme);
   const duplicateTheme = useEditorStore((state) => state.duplicateTheme);
   const getAllThemes = useEditorStore((state) => state.getAllThemes);
-  const customThemeList = useEditorStore((state) => state.customThemes);
   const persistActiveSnapshot = useHistoryStore((state) => state.persistActiveSnapshot);
-  const allThemes = useMemo(() => getAllThemes(), [getAllThemes, customThemeList]);
+  const allThemes = useMemo(() => getAllThemes(), [getAllThemes]);
   const [selectedThemeId, setSelectedThemeId] = useState<string>('');
   const [nameInput, setNameInput] = useState('');
   const [cssInput, setCssInput] = useState('');
