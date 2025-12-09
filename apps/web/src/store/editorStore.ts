@@ -187,6 +187,7 @@ $$
 
 // LocalStorage key for custom themes
 const CUSTOM_THEMES_KEY = 'wemd-custom-themes';
+const SELECTED_THEME_KEY = 'wemd-selected-theme';
 
 const canUseLocalStorage = () => typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
 
@@ -214,6 +215,29 @@ const saveCustomThemes = (themes: CustomTheme[]): void => {
     localStorage.setItem(CUSTOM_THEMES_KEY, JSON.stringify(themes));
   } catch (error) {
     console.error('Failed to save custom themes:', error);
+  }
+};
+
+// Save selected theme to localStorage
+const saveSelectedTheme = (themeId: string, themeName: string): void => {
+  if (!canUseLocalStorage()) return;
+  try {
+    localStorage.setItem(SELECTED_THEME_KEY, JSON.stringify({ id: themeId, name: themeName }));
+  } catch (error) {
+    console.error('Failed to save selected theme:', error);
+  }
+};
+
+// Load selected theme from localStorage
+const loadSelectedTheme = (): { id: string; name: string } | null => {
+  if (!canUseLocalStorage()) return null;
+  try {
+    const stored = localStorage.getItem(SELECTED_THEME_KEY);
+    if (!stored) return null;
+    return JSON.parse(stored);
+  } catch (error) {
+    console.error('Failed to load selected theme:', error);
+    return null;
   }
 };
 
@@ -326,13 +350,23 @@ const defaultThemes: ThemeDefinition[] = [
   },
 ];
 
+// Load initial theme from localStorage and validate it exists
+const initialSelectedTheme = (() => {
+  const saved = loadSelectedTheme();
+  if (!saved) return null;
+  // Validate theme exists (check both built-in and custom themes)
+  const allThemes = [...builtInThemes, ...loadCustomThemes()];
+  const exists = allThemes.some(t => t.id === saved.id);
+  return exists ? saved : null;
+})();
+
 export const useEditorStore = create<EditorStore>((set, get) => ({
   markdown: defaultMarkdown,
   setMarkdown: (markdown) => set({ markdown }),
 
-  theme: 'default',
+  theme: initialSelectedTheme?.id ?? 'default',
   setTheme: (theme) => set({ theme }),
-  themeName: '默认主题',
+  themeName: initialSelectedTheme?.name ?? '默认主题',
   setThemeName: (themeName: string) => set({ themeName }),
   themes: defaultThemes,
   setThemes: (themes) => set({ themes }),
@@ -345,6 +379,8 @@ export const useEditorStore = create<EditorStore>((set, get) => ({
       themeName: theme.name,
       customCSS: '',
     });
+    // Persist to localStorage
+    saveSelectedTheme(theme.id, theme.name);
   },
 
   customCSS: '',
