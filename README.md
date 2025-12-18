@@ -57,7 +57,7 @@ WeMD 内置了一套**色彩语义保全算法**，可在编辑器中预览微�
 - 智能识别不同元素类型，分别优化
 - HSL 色彩空间计算，确保视觉一致性
 
-这（可能）是目前市面上唯一针对微信公众号深色模式预览的开源解决方案。
+这（可能）是目前市面上除官方外唯一针对微信公众号深色模式预览的开源解决方案。
 
 👉 **[查看算法详细原理解析](https://wemd.app/docs/reference/dark-mode-algorithm.html)** | **[查看算法源码](packages/core/src/wechatDarkMode.ts)**
 
