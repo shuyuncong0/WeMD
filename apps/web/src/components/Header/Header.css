@@ -439,3 +439,11 @@
         min-height: 400px;
     }
 }
+
+/* 图床设置模态框 - 更窄的宽度，头部固定 */
+.storage-modal-panel.image-host-modal {
+    width: min(640px, 90vw);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}

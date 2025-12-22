@@ -178,7 +178,7 @@ export function Header() {
 
             {showImageHostModal && (
                 <div className="storage-modal-overlay" onClick={() => setShowImageHostModal(false)}>
-                    <div className="storage-modal-panel" onClick={(e) => e.stopPropagation()}>
+                    <div className="storage-modal-panel image-host-modal" onClick={(e) => e.stopPropagation()}>
                         <div className="storage-modal-header">
                             <h3>图床设置</h3>
                             <button className="storage-modal-close" onClick={() => setShowImageHostModal(false)} aria-label="关闭">
